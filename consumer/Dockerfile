@@ -1,7 +1,7 @@
 FROM golang:alpine3.10 as builder
 RUN apk add --update && \
     apk add git
-WORKDIR $GOPATH/src/selcukusta/same-site-provider/
+WORKDIR $GOPATH/src/selcukusta/same-site-consumer/
 COPY . .
 RUN go get -d -v
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/main .
